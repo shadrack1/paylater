@@ -1,40 +1,181 @@
-{% block content %}
-<div class="formwrapper">
-  <form method=post>
-    <div class="name">
-      {{ form.name(placeholder='Joe Blah') }} {{ form.name.label }}
-      {% if form.name.errors %}
-        <ul class="errors">{% for error in form.name.errors %}<li>{{ error }}</li>{% endfor %}</ul>
-      {% endif %}
-    </div>
-    <div class="email">
-      {{ form.email }} {{ form.email.label }}
-      {% if form.email.errors %}
-        <ul class="errors">{% for error in form.email.errors %}<li>{{ error }}</li>{% endfor %}</ul>
-      {% endif %}
-    </div>
-    <div class="password">
-      {{ form.password }} {{ form.password.label }}
-      {% if form.password.errors %}
-        <ul class="errors">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
-      {% endif %}
-    </div>
-    <div class="confirm">
-      {{ form.confirmPassword }} {{ form.confirmPassword.label }}
-      {% if form.confirmPassword.errors %}
-        <ul class="errors">{% for error in form.passwordPassword.errors %}<li>{{ error }}</li>{% endfor %}</ul>
-      {% endif %}
-    </div>
-    <div class="submitbutton">
-      <input id="submit" type="submit" value="Submit">
-    </div>
-  </form>
-</div>
+{% include "layout.html" %}
+{% include "nav.html" %}
 
-{% for message in get_flashed_messages() %}
-<div class="alert alert-warning">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    {{ message }}
-</div>
-{% endfor %}
+{% block content %}
+    <body>
+        <div class="top-content">
+            <div class="container" style="vertical-align: center;">
+                <div class="row" style="align-content: center;">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
+                    	<form role="form" action="" method="post" class="f1 bg-secondary" style="text-align: center;">
+                    		<h3>Register To Our App</h3>
+                    		<p>Fill in the form to get instant access</p>
+                    		<div class="f1-steps">
+                    			<div class="f1-progress">
+                    			    <div class="f1-progress-line" data-now-value="16.66" data-number-of-steps="3" style="width: 16.66%;"></div>
+                    			</div>
+                    			<div class="f1-step active">
+                    				<div class="f1-step-icon"><i class="fa fa-diamond"></i></div>
+                    				<p>General</p>
+                    			</div>
+                    			<div class="f1-step">
+                    				<div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                    				<p>Personal</p>
+                    			</div>
+                    		    <div class="f1-step">
+                    				<div class="f1-step-icon"><i class="fa fa-bank"></i></div>
+                    				<p>Occupational</p>
+                    			</div>
+                    		</div>
+                    		
+                    		<fieldset>
+                    		    <h4>General Information:</h4>
+                    			<div class="form-group">
+                    			    <label class="sr-only" for="f1-first-name">First name</label>
+                                    <input type="text" name="f1-first-name" placeholder="First name..." class="f1-first-name form-control" id="f1-first-name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-last-name">Last name</label>
+                                    <input type="text" name="f1-last-name" placeholder="Last name..." class="f1-last-name form-control" id="f1-last-name">
+                                </div>
+<!--
+                                <div class="form-group">
+                                     <div class="form-group">
+                                      <label class="sr-only" for="sel1">Gender</label>
+                                      <select class="form-control bg-primary" id="sel1">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                      </select>
+                                </div> 
+-->
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-password">Password</label>
+                                    <input type="password" name="f1-password" placeholder="Password..." class="f1-password form-control" id="f1-password">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-repeat-password">Repeat password</label>
+                                    <input type="password" name="f1-repeat-password" placeholder="Repeat password..." class="f1-repeat-password form-control" id="f1-repeat-password">
+                                </div>
+                                
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <h4>Set up your account:</h4>
+                                <div class="form-group">
+                                     <div class="form-group">
+                                      <label for="sel1">Select ID Type:</label>
+                                      <select class="form-control" id="sel1">
+                                        <option>Passport</option>
+                                        <option>Driving License</option>
+                                        <option>National ID</option>
+                                        <option>Voter ID</option>
+                                      </select>
+                                </div> 
+                                
+                                <div class="form-group">
+                                    <label class="f1-text">Enter ID Number</label>
+                                    <input type="text" name="f1-text" placeholder="2244245....." class="f1-text form-control" id="f1-text">
+                                </div>
+
+                                <div class="form-group">
+                                      <label for="sel1">Maritial Status</label>
+                                      <select class="form-control" id="sel1">
+                                        <option>Single</option>
+                                        <option>Married</option>
+                                      </select>
+                                  </div>
+
+                                 <div class="form-group">
+                                  <label class="f1-text">Residence</label>
+                                  <select class="form-control" id="sel1">
+                                   <option> Arusha </option>
+                                    <option> Dar es Salaam </option>
+                                    <option> Dodoma </option>
+                                    <option> Geita </option>
+                                    <option> Iringa </option>
+                                    <option> Kagera </option>
+                                    <option> Katavi </option>
+                                    <option> Kigoma </option>
+                                    <option> Kilimanjaro </option>
+                                    <option> Lindi </option>
+                                    <option> Manyara </option>
+                                    <option> Mara </option>
+                                    <option> Mbeya </option>
+                                    <option> Morogoro </option>
+                                    <option> Mtwara </option>
+                                    <option> Mwanza </option>
+                                    <option> Njombe </option>
+                                    <option> Pemba  </option>
+                                    <option> NorthPemba </option>
+                                    <option> South Pwani </option>
+                                    <option> Rukwa </option>
+                                    <option> Ruvuma </option>
+                                    <option> Shinyanga </option> 
+                                    <option> Simiyu </option>
+                                    <option> Singida </option>
+                                    <option> Tabora </option>
+                                    <option> Tanga </option>
+                                    <option> Zanzibar </option>
+                                  </select>
+                            </div> 
+
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <h4>Occupational Information</h4>
+
+                                <div class="form-group">
+                                      <label for="sel1">Employment Status</label>
+                                      <select class="form-control" id="sel1">
+                                        <option>Employed</option>
+                                        <option>Not Employed</option>
+                                      </select>
+                                  </div>
+
+                                <div class="form-group">
+                                    <label class="f1-e_name">Enter Employer name </label>
+                                    <input type="text" name="f1-e_name" placeholder="Company Inc....." class="f1-e_name form-control" id="f1-e_name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="f1-e_id">Enter Employer ID </label>
+                                    <input type="text" name="f1-e_id" placeholder="CA-44-56....." class="f1-e_id form-control" id="f1-e_id">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="f1-e_date_start">Employment contract start </label>
+                                    <input type="date" name="f1-e_date_start" placeholder="CA-44-56....." class="f1-e_date_start form-control" id="f1-e_date_start">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="f1-e_date_end">Employment contract date </label>
+                                    <input type="date" name="f1-e_date_end" placeholder="CA-44-56....." class="f1-e_date_end form-control" id="f1-e_date_end">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="f1-salary">Salary in TSH</label>
+                                    <input type="number" name="f1-salary" placeholder="CA-44-56....." class="f1-salary form-control" id="f1-salary">
+                                </div>
+
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-submit">Finish</button>
+                                </div>
+                            </fieldset>
+                    	</form>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+    </body>
+{% include "footer.html" %}
 {% endblock %}
